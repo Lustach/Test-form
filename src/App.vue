@@ -1,14 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Header/>
+    <router-view id="content"/>
   </div>
 </template>
 
+<script>
+// @ is an alias to /src
+import Header from '@/components/Header/Header.vue'
+
+export default {
+	name: 'Home',
+	components: {
+		Header
+	}
+}
+</script>
 <style lang="scss">
+#content{
+  margin: 70px 15px 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

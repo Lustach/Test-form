@@ -1,0 +1,66 @@
+@import "src/assets/css/global"
+.slide-fade-enter-active
+  transition: all .3s ease
+.slide-fade-leave-active
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.slide-fade-enter, .slide-fade-leave-to
+  transform: translateX(1000px)
+  opacity: 0
+  overflow-y: hidden
+
+.tab
+  &__component
+    display: flex
+    flex-direction: column
+    border: 1px solid $black-light
+    height: calc(100vh - 345px)
+    max-height: 1000px
+    box-shadow: 0 5px 10px $black-light
+    overflow-x: hidden
+    position: relative
+  &__btn
+    width: 100%
+    max-width: 100px
+    color: azure
+    background-color: $primary
+    border: 1px solid $primary
+    border-radius: 5px
+    &:not(first-child)
+      margin-right: 3px
+    &:active,
+    &:focus
+      outline: none
+    &:hover
+     background-color: $primary-light
+    &:focus
+      border: 1px solid $primary
+      background-color: $primary-success
+    &--active
+      border: 1px solid $primary
+      background-color: $primary-success
+      &:hover
+        background-color: $primary-light
+.tabs
+  display: flex
+  height: 40px
+  margin-bottom: 3px
+  &__container
+    display: flex
+    flex-direction: column
+    max-width: 650px
+
+.enlarge
+  font-size: 14px
+  transition:
+    property: font-size
+    duration: 4s
+    delay: 2s
+
+  &:hover
+    font-size: 36px
+
+.dialog
+  background-color: $primary-success
+  margin: 0 50px 0
+  color: white

@@ -1,0 +1,96 @@
+@import "helpers"
+@import "vars"
+
+//@media screen and (max-width: 571px)
+//  html, body
+//    .btn__container
+//      position: relative
+
+.form
+  padding: 0 10px
+  height: 100%
+.required
+  color: red
+  margin-right: 5px
+  margin-left: 2px
+
+.input
+  &--group
+    display: flex
+    @media screen and (max-width: 500px)
+      flex-wrap: wrap
+      flex: 1
+  &--title
+    text-align: start
+    width: 150px
+    margin-left: 30px
+
+  //flex-direction: column
+  //flex: 1
+
+.input--date
+  height: 36px
+
+.input-container
+  position: relative
+  min-width: 200px
+  margin: 0 30px 25px
+  display: flex
+  flex: 1
+  align-items: center
+  //@media screen and (max-width: 643px)
+  //margin-bottom: 0
+  &__success
+    border-bottom: 1px solid #248000
+
+  &__error
+    border-bottom: 1px solid red
+
+.select-field
+  height: 40px
+  width: 207px
+  //min-width: 207px
+  option
+    height: 41px
+    display: flex
+    justify-content: center
+    align-items: center
+//text-align: center
+
+.card__header
+  margin-bottom: 30px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+  color: white
+  background-color: $primary-light
+
+.btn
+  color: #fff
+  background-color: $primary-light
+  outline: none
+  border: 0
+  padding: 10px 20px
+  text-transform: uppercase
+  margin-top: 50px
+  border-radius: 2px
+  cursor: pointer
+  position: relative
+  width: 50%
+  &[disabled]
+    background-color: #8c9cb0
+    cursor: default
+  //&__container
+  //  position: absolute
+  //  bottom: 0
+  //  width: 100%
+.field
+  &__error
+    border-bottom: 1px solid red
+  &__require
+    border-bottom: 1px solid $primary
+  &__success
+    border-bottom: 1px solid #31b838
+  &__default
+    border-bottom: 1px solid yellow
