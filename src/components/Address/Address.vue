@@ -9,7 +9,6 @@
       <my-input label="Улица" v-model.trim="street"/>
       <my-input label="Дом" v-model="house"/>
     </form>
-    <slot name="footer"></slot>
   </div>
 </template>
 

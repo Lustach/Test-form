@@ -1,6 +1,6 @@
 <template>
   <div class="general">
-<!--    {{$v}}-->
+    <!--    {{$v}}-->
     <slot name="header"></slot>
     <form class="form">
       <div class="d-flex wrap">
@@ -57,14 +57,13 @@
         </div>
       </div>
     </form>
-    <slot name="footer"></slot>
   </div>
 </template>
 
 <script>
 import {minLength, required} from 'vuelidate/lib/validators'
 import {eventBus} from '@/main.js'
-import {bus,status} from "../../plugins/bus"
+import {bus, status} from "../../plugins/bus"
 
 export default {
 	name: 'General',
@@ -113,8 +112,8 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(this,'General')
-    bus(eventBus,status.bind(this))
+		console.log(this, 'General')
+		bus(eventBus, status.bind(this))
 	},
 	props: {},
 }

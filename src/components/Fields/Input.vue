@@ -1,8 +1,7 @@
 <template>
   <div class="input-container">
-    <input :class="{'field__error':$v.value.$error,'field__success':!$v.value.$error && $v.value.$dirty && required}" :type="type" :value="value" @change="input" class="mb-5"
-           required=""
-           v-on:blur='$v.value.$touch()'/>
+    <input :class="{'field__error':$v.value.$error,'field__success':!$v.value.$error && $v.value.$dirty && required}"
+           :type="type" :value="value" @change="input" class="mb-5" required="" v-on:blur='$v.value.$touch()'/>
     <label>{{label}}<span class="required">{{required}}</span></label>
     <div class="error" v-if="$v.value.$error">
       <template v-if="required && value.length===0">Обязательное поле</template>

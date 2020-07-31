@@ -14,7 +14,7 @@
         </component>
       </keep-alive>
       <div v-if="statusIsOkay===false">Сначала заполните обязательные поля во всех вкладках!</div>
-      <div class="dialog">
+      <div v-if="statusIsOkay===true">
         Клиент создан
         <button @click="statusIsOkay=null">Закрыть</button>
       </div>
@@ -40,20 +40,19 @@ export default {
 	},
 	mounted() {
 		this.$refs.tabs[0].classList.add(this.setTab)
-		eventBus.$on('testEmit', e => {
+		eventBus.$on('status', e => {
 			this.status.push(e())
 		})
 	},
 	data: () => {
 		return {
-			// tabs: ['Общие', 'Адрес', 'Паспорт'],
 			tabs: [{ text: 'Общие', value: 'General' },
 				{ text: 'Адрес', value: 'Address' },
 				{ text: 'Паспорт', value: 'Passport' },
 			],
 			currentTab: 'General',
-			tabStatus: ['General'],
-			status: [],
+			tabStatus: ['General'],// пока пользователь не зайдёт на все три вкладки, то кнопка не разлочится
+			status: [],// статус валидности полей true/false undefined??
 			statusIsOkay: null,
 		}
 	},
@@ -63,19 +62,20 @@ export default {
 		},
 		btnTitle: (vm) => {
 			if (vm.tabStatus.length < 3)
-				return 'Сначала заполните форму'
+				return 'Сначала заполните обязательные поля во вкладках'
 			return 'Добавить клиента'
 		}
 	},
 	methods: {
 		addClient() {
-			eventBus.$emit('myEvent', 'shit')
+			eventBus.$emit('addClient', 'shit')
 			this.statusIsOkay = this.status.indexOf(true) === -1
 			this.status = []
 		},
 		activeTab(index, tabComponent) {
-			if (!this.tabStatus.find((e) => e === tabComponent)) this.tabStatus.push(tabComponent)
-			this.$refs.tabs[index].classList.add(this.setTab)
+			if (!this.tabStatus.find((e) => e === tabComponent)) this.tabStatus.push(tabComponent)// проверяем был ли пользователь на вкладке
+			// работа с классами
+      this.$refs.tabs[index].classList.add(this.setTab)
 			this.currentTab = tabComponent
 			this.tabs.forEach((e, i) => {
 				if (i !== index)

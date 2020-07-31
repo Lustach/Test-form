@@ -30,7 +30,6 @@
         </div>
       </div>
     </form>
-    <slot name="footer"></slot>
   </div>
 </template>
 
@@ -47,7 +46,10 @@ export default {
 	data: () => {
 		return {
 			docType: {
-				list: [{ text: 'Паспорт', value: '1' }, { text: 'Свидетельство о рождении', value: '2' }, { text: 'Вод. удостоверение', value: '3' }],
+				list: [
+					{ text: 'Паспорт', value: '1' },
+					{ text: 'Свидетельство о рождении', value: '2' },
+					{ text: 'Вод. удостоверение', value: '3' }],
 				selectedType: '',
 			},
 			series: '',
